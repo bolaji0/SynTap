@@ -1,0 +1,417 @@
+/* =========================================================
+   Syntap — brand + product website
+   Design tokens
+   ========================================================= */
+:root {
+  --bg: #FAF9F5;
+  --bg-alt: #F1EFE6;
+  --ink: #10241C;
+  --ink-soft: #26392F;
+  --green: #0B6E4F;
+  --green-deep: #0A4A36;
+  --green-ink: #06231A;
+  --gold: #E8A33D;
+  --gold-deep: #C6811F;
+  --white: #FFFFFF;
+  --line: rgba(16, 36, 28, 0.12);
+  --line-soft: rgba(16, 36, 28, 0.08);
+  --text-muted: #55625B;
+  --danger: #B3261E;
+
+  --dark-line: rgba(255, 255, 255, 0.14);
+  --dark-text-muted: rgba(255, 255, 255, 0.64);
+  --dark-accent: #6FCBA0;
+
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+
+  --shadow-card: 0 1px 2px rgba(16,36,28,0.04), 0 12px 28px -16px rgba(16,36,28,0.2);
+
+  --container: 1120px;
+  --container-narrow: 700px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* =========================================================
+   Reset
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+input, select, textarea { font-family: inherit; font-size: 1rem; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; margin: 0; color: var(--ink); letter-spacing: -0.01em; }
+p { margin: 0; }
+
+:focus-visible { outline: 2.5px solid var(--gold-deep); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+.wrap.narrow { max-width: var(--container-narrow); }
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 26px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 1.5px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
+}
+.btn:active { opacity: 0.85; }
+.btn-primary { background: var(--green); color: var(--white); }
+.btn-primary:hover { background: var(--green-deep); }
+.btn-outline { border-color: rgba(255,255,255,0.5); color: var(--white); }
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+.btn-outline-dark { border-color: var(--line); color: var(--ink); }
+.btn-outline-dark:hover { border-color: var(--ink); }
+.btn-ghost { padding: 10px 18px; background: var(--green); color: var(--white); font-size: 0.88rem; border-radius: 8px; }
+.btn-ghost:hover { background: var(--green-deep); }
+.btn-wide { width: 100%; padding: 17px 26px; font-size: 1.02rem; }
+.btn-text { padding: 0; background: none; color: var(--green-deep); font-weight: 600; }
+
+/* =========================================================
+   Header / nav
+   ========================================================= */
+.site-header { position: sticky; top: 0; z-index: 40; background: rgba(250, 249, 245, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
+.header-inner { display: flex; align-items: center; gap: 32px; height: 68px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink); }
+/* Static by default — a simple silhouette that reads at 20px and
+   would still work embossed on hardware. The single pulse on hover
+   is a detail, not a requirement of the mark. */
+.brand-mark { position: relative; width: 26px; height: 26px; border-radius: 7px; background: var(--ink); display: inline-flex; }
+.brand-ripple { position: absolute; inset: 7px; border-radius: 3px; border: 1.5px solid var(--gold); }
+.brand:hover .brand-ripple { animation: brandPulse 0.9s ease-out 1; }
+@keyframes brandPulse { 0% { transform: scale(0.75); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
+.main-nav { display: flex; align-items: center; gap: 26px; margin-right: auto; }
+.main-nav a { font-size: 0.92rem; font-weight: 500; color: var(--ink-soft); }
+.main-nav a:hover { color: var(--ink); }
+.nav-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; padding: 8px; }
+.nav-toggle span { width: 20px; height: 1.5px; background: var(--ink); }
+.mobile-nav { display: flex; flex-direction: column; gap: 2px; padding: 8px 24px 20px; border-top: 1px solid var(--line-soft); }
+.mobile-nav a { padding: 12px 4px; font-size: 0.98rem; font-weight: 500; color: var(--ink-soft); border-bottom: 1px solid var(--line-soft); }
+.mobile-nav .btn { margin-top: 14px; }
+@media (min-width: 861px) { .mobile-nav { display: none !important; } }
+
+/* =========================================================
+   Image slot — placeholder for real product photography.
+   Replace the <figure class="image-slot"> contents with a
+   real <img> when photography is available; the aspect ratio
+   and radius are already sized for the layout.
+   ========================================================= */
+/* The frame is deliberately neutral so a real <img> (width/height
+   100%, object-fit: cover — already set below) drops in and fills
+   it completely with zero further CSS changes. The caption is a
+   small dev-only annotation, not the frame's content. */
+.image-slot {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: linear-gradient(155deg, var(--bg-alt) 0%, rgba(16,36,28,0.03) 100%);
+  overflow: hidden;
+}
+.image-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.image-slot-label {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+  background: rgba(250, 249, 245, 0.88);
+  backdrop-filter: blur(4px);
+  padding: 5px 10px;
+  border-radius: 6px;
+  max-width: calc(100% - 28px);
+}
+.image-slot-tall { aspect-ratio: 4 / 5; }
+.image-slot-square { aspect-ratio: 1 / 1; width: 96px; height: 96px; flex-shrink: 0; border-radius: var(--radius-m); }
+.image-slot-square .image-slot-label { font-size: 0.6rem; left: 8px; bottom: 8px; padding: 3px 6px; }
+.image-slot-wide { aspect-ratio: 5 / 4; }
+.section-dark .image-slot { background: linear-gradient(155deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border-color: var(--dark-line); }
+.section-dark .image-slot-label { background: rgba(16, 36, 28, 0.75); color: var(--dark-text-muted); }
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero { padding: 72px 0 88px; }
+.hero-inner { display: grid; grid-template-columns: 1fr 0.9fr; gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.04; margin-bottom: 20px; max-width: 14ch; }
+.hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 40ch; margin-bottom: 30px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* A quiet interaction layer at the corner of the product frame —
+   it should read as a detail, never compete with the product. */
+.hero-tap-stage { position: relative; }
+.tap-demo-phone {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--ink);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px -8px rgba(16,36,28,0.45);
+}
+.tap-demo-phone-glow { width: 14px; height: 14px; border-radius: 4px; background: var(--gold); }
+.tap-demo-ripple {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  border: 1.5px solid var(--gold);
+  opacity: 0;
+  z-index: 2;
+}
+.tap-demo-ripple.r1 { animation: ripple 4.2s ease-out infinite; }
+@keyframes ripple { 0% { transform: scale(1); opacity: 0.7; } 70% { opacity: 0; } 100% { transform: scale(1.9); opacity: 0; } }
+
+.hero-route { margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); }
+.hero-route-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+/* =========================================================
+   Section base
+   ========================================================= */
+.section { padding: 100px 0; }
+.section-alt { background: var(--bg-alt); }
+.section-kicker { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--green); margin-bottom: 14px; }
+.section h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.16; max-width: 20ch; }
+.section-lede { margin-top: 18px; font-size: 1.06rem; color: var(--text-muted); max-width: 56ch; }
+.section-statement { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-family: var(--font-display); font-weight: 600; color: var(--ink-soft); margin-top: 8px; }
+
+/* =========================================================
+   Destination display — used by "the idea" and "the object
+   stays" sections. One visual system, cycling text.
+   ========================================================= */
+.destination-display { margin-top: 48px; display: flex; align-items: center; gap: 28px; }
+.destination-readout { display: flex; flex-direction: column; gap: 6px; transition: opacity 0.3s ease, transform 0.3s ease; }
+.destination-readout.is-changing { opacity: 0; transform: translateY(4px); }
+.destination-eyebrow { font-family: var(--font-mono); font-size: 0.82rem; color: var(--gold-deep); }
+.destination-value { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 3vw, 2rem); }
+.section-dark .destination-eyebrow { color: var(--dark-accent); }
+.section-dark .destination-value { color: var(--white); }
+
+/* "One tap can open almost anything" — object stays fixed at the
+   top, a tap pulse marks the moment, the destination changes below. */
+.tap-demo-vertical { margin-top: 48px; display: flex; flex-direction: column; align-items: center; gap: 0; text-align: center; }
+.tap-marker { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 0; }
+.tap-marker-line { width: 1px; height: 20px; background: var(--line); }
+.tap-marker-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.tap-marker-dot.is-pulsing { animation: tapPulse 0.6s ease-out; }
+@keyframes tapPulse { 0% { box-shadow: 0 0 0 0 rgba(232,163,61,0.55); } 100% { box-shadow: 0 0 0 10px rgba(232,163,61,0); } }
+.tap-marker-label { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); }
+
+/* =========================================================
+   Platform / routing flow (vertical)
+   ========================================================= */
+.section-dark { background: var(--ink); color: rgba(255,255,255,0.92); }
+.section-kicker-dark { color: var(--dark-accent); }
+.dark-heading { color: var(--white); }
+.dark-lede { color: var(--dark-text-muted); }
+.dark-body { color: var(--dark-text-muted); }
+
+.flow-vertical { margin-top: 48px; display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+.flow-step { font-family: var(--font-mono); font-size: 0.92rem; color: rgba(255,255,255,0.88); padding: 4px 0; }
+.flow-step-accent { color: var(--dark-accent); }
+.flow-connector { width: 1px; height: 22px; background: var(--dark-line); margin-left: 2px; }
+.flow-note { margin-top: 40px; font-size: 1rem; color: var(--dark-text-muted); max-width: 52ch; }
+
+/* =========================================================
+   Showcase (flagship product / review hero)
+   ========================================================= */
+.showcase-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.showcase-list { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+.showcase-list li { font-size: 0.98rem; color: var(--ink-soft); position: relative; padding-left: 16px; }
+.showcase-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.showcase-note { margin-top: 24px; font-size: 0.85rem; color: var(--text-muted); }
+
+/* =========================================================
+   Syntap Business panel
+   ========================================================= */
+.business-panel { margin-top: 48px; background: rgba(255,255,255,0.03); border: 1px solid var(--dark-line); border-radius: var(--radius-l); overflow: hidden; }
+.business-panel-head { display: flex; align-items: center; gap: 9px; padding: 18px 26px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--dark-text-muted); border-bottom: 1px solid var(--dark-line); }
+.business-panel-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--dark-accent); }
+.business-panel-body { display: grid; grid-template-columns: 1fr 1fr; }
+.business-devices, .business-activity { padding: 22px 26px; }
+.business-devices { border-right: 1px solid var(--dark-line); }
+.panel-subhead { display: block; font-family: var(--font-mono); font-size: 0.74rem; color: var(--dark-text-muted); margin-bottom: 14px; }
+.panel-row { display: flex; justify-content: space-between; font-size: 0.92rem; padding: 9px 0; border-top: 1px solid var(--dark-line); color: rgba(255,255,255,0.85); }
+.panel-row:first-of-type { border-top: none; }
+.panel-row.muted { color: var(--dark-text-muted); font-family: var(--font-mono); font-size: 0.86rem; }
+.panel-status { font-family: var(--font-mono); font-size: 0.76rem; color: var(--dark-accent); }
+.business-panel-foot { padding: 16px 26px; font-size: 0.82rem; color: var(--dark-text-muted); border-top: 1px solid var(--dark-line); }
+
+/* =========================================================
+   Ecosystem list
+   ========================================================= */
+.ecosystem-list { margin-top: 44px; border-top: 1px solid var(--line-soft); max-width: 620px; }
+.ecosystem-row { display: flex; align-items: baseline; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid var(--line-soft); }
+.ecosystem-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.ecosystem-status { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+.ecosystem-status-live { color: var(--green-deep); }
+.ecosystem-row-future { opacity: 0.62; }
+.ecosystem-row-future .ecosystem-name { font-weight: 500; }
+
+/* =========================================================
+   Final CTA
+   ========================================================= */
+.final-cta-inner p { color: var(--text-muted); margin: 16px 0 30px; max-width: 50ch; font-size: 1.02rem; }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer { background: var(--bg-alt); border-top: 1px solid var(--line-soft); padding: 56px 0 24px; }
+.footer-inner { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 28px; padding-bottom: 32px; }
+.footer-brand p { margin-top: 10px; font-size: 0.88rem; color: var(--text-muted); max-width: 30ch; }
+.footer-col h4 { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600; }
+.footer-col p { font-size: 0.92rem; margin-bottom: 6px; color: var(--ink-soft); }
+.footer-col a:hover { color: var(--green); }
+.footer-bottom { border-top: 1px solid var(--line-soft); padding-top: 20px; font-size: 0.78rem; color: var(--text-muted); }
+
+/* =========================================================
+   ============  PRODUCT PAGE (/review) ONLY  =============
+   ========================================================= */
+
+/* ---- Problem (short form, no card grid) ---- */
+.problem-resolve { margin-top: 26px; font-size: 1.08rem; font-family: var(--font-display); font-weight: 500; color: var(--green-deep); border-left: 3px solid var(--gold); padding-left: 18px; }
+
+/* ---- How it works (genuine sequence — numbering earned) ---- */
+.steps { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { border-top: 1px solid var(--line); padding-top: 20px; }
+.step-num { display: block; font-family: var(--font-mono); font-size: 0.82rem; color: var(--gold-deep); margin-bottom: 14px; }
+.step h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.step p { color: var(--text-muted); font-size: 0.96rem; }
+
+.qr-note { margin-top: 32px; border-left: 3px solid var(--line); padding-left: 18px; }
+.qr-note strong { font-size: 0.98rem; display: block; margin-bottom: 4px; }
+.qr-note span { color: var(--text-muted); font-size: 0.95rem; }
+
+/* ---- Benefits (simple list, not a card grid) ---- */
+.benefits-list { margin-top: 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 40px; }
+.benefit-item h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.benefit-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* ---- Who it's for (pill list, not boxed grid) ---- */
+.usecase-pills { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; }
+.usecase-pill { border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* ---- Pricing / packages ---- */
+.packages { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.package { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--radius-m); padding: 26px 20px; text-align: center; cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; position: relative; }
+.package:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.package.is-selected { border-color: var(--green); box-shadow: 0 0 0 3px rgba(11,110,79,0.12); }
+.package-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; padding: 4px 11px; border-radius: 999px; }
+.package-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin-bottom: 6px; }
+.package-price { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 600; color: var(--green-deep); }
+.package-unit { display: block; font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+
+.order-summary { margin-top: 30px; background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius-m); padding: 22px 24px; }
+.order-summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.95rem; color: var(--ink-soft); }
+.order-summary-total { border-top: 1px solid var(--line-soft); margin-top: 4px; padding-top: 14px; font-family: var(--font-mono); font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+.order-summary-savings { margin-top: 6px; font-size: 0.85rem; color: var(--green-deep); text-align: right; min-height: 1.2em; }
+.packages ~ .btn { margin-top: 28px; }
+.offer-alt { margin-top: 18px; text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+.offer-alt a { color: var(--green-deep); font-weight: 600; }
+
+/* ---- Order form ---- */
+#orderForm { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field label { font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); }
+.field .optional { font-weight: 400; color: var(--text-muted); }
+.field input, .field select, .field textarea { padding: 13px 15px; border-radius: var(--radius-s); border: 1.5px solid var(--line); background: var(--white); color: var(--ink); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); }
+.field textarea { resize: vertical; }
+.field-hint { font-size: 0.82rem; color: var(--text-muted); }
+.field-error { font-size: 0.82rem; color: var(--danger); min-height: 1.1em; }
+.field.has-error input, .field.has-error select { border-color: var(--danger); }
+
+.confirm-state { background: rgba(11,110,79,0.08); border: 1px solid rgba(11,110,79,0.25); border-radius: var(--radius-s); padding: 14px 16px; font-size: 0.92rem; color: var(--green-deep); font-weight: 600; }
+.form-footnote { font-size: 0.82rem; color: var(--text-muted); text-align: center; }
+
+/* ---- FAQ accordion (trimmed) ---- */
+.accordion { margin-top: 32px; border-top: 1px solid var(--line-soft); }
+.accordion-item { border-bottom: 1px solid var(--line-soft); }
+.accordion-trigger { width: 100%; background: none; border: none; display: flex; align-items: center; justify-content: space-between; padding: 20px 4px; font-size: 1rem; font-weight: 600; color: var(--ink); text-align: left; }
+.accordion-icon { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+.accordion-icon::before, .accordion-icon::after { content: ""; position: absolute; background: var(--ink); transition: transform 0.2s ease; }
+.accordion-icon::before { width: 16px; height: 2px; top: 7px; left: 0; }
+.accordion-icon::after { width: 2px; height: 16px; top: 0; left: 7px; }
+.accordion-trigger[aria-expanded="true"] .accordion-icon::after { transform: scaleY(0); }
+.accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+.accordion-panel p { padding: 0 4px 20px; color: var(--text-muted); font-size: 0.95rem; max-width: 60ch; }
+
+/* ---- Sticky mobile CTA (product page only) ---- */
+.sticky-cta { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; display: none; transform: translateY(120%); transition: transform 0.25s ease; }
+.sticky-cta.is-visible { transform: translateY(0); }
+.sticky-cta a { display: flex; align-items: center; justify-content: center; background: var(--green); color: var(--white); font-weight: 700; padding: 15px; border-radius: 10px; box-shadow: 0 10px 22px -10px rgba(11,110,79,0.45); }
+
+/* =========================================================
+   Scroll reveal — used sparingly (packages, steps only)
+   ========================================================= */
+[data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1024px) {
+  .showcase-inner { grid-template-columns: 1fr; }
+  .showcase-visual { order: -1; max-width: 380px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .business-panel-body { grid-template-columns: 1fr; }
+  .business-devices { border-right: none; border-bottom: 1px solid var(--dark-line); }
+  .steps { grid-template-columns: 1fr; }
+  .benefits-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
+  .main-nav, .header-cta { display: none; }
+  .nav-toggle { display: flex; }
+  body.has-sticky-cta .site-footer { padding-bottom: 100px; }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 64px 0; }
+  .hero { padding: 44px 0 60px; }
+  .packages { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  .hero-actions .btn, .final-cta-inner .btn { width: 100%; }
+  .destination-display { gap: 18px; }
+  .image-slot-square { width: 76px; height: 76px; }
+}
