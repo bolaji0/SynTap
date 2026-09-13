@@ -114,6 +114,7 @@ p { margin: 0; }
 .main-nav a:hover { color: var(--ink); }
 .nav-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; padding: 8px; }
 .nav-toggle span { width: 20px; height: 1.5px; background: var(--ink); }
+.mobile-nav[hidden] { display: none; }
 .mobile-nav { display: flex; flex-direction: column; gap: 2px; padding: 8px 24px 20px; border-top: 1px solid var(--line-soft); }
 .mobile-nav a { padding: 12px 4px; font-size: 0.98rem; font-weight: 500; color: var(--ink-soft); border-bottom: 1px solid var(--line-soft); }
 .mobile-nav .btn { margin-top: 14px; }
