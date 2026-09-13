@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syntap — The Physical World, Connected.</title>
+<meta name="description" content="Syntap turns physical touchpoints into intelligent digital experiences. Syntap Review, the first product on the platform, is available now.">
+<link rel="canonical" href="https://syntap.tech/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Syntap — The Physical World, Connected.">
+<meta property="og:description" content="Syntap turns physical touchpoints into intelligent digital experiences.">
+<meta property="og:image" content="assets/syntap-og.png">
+<meta property="og:url" content="https://syntap.tech/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true"><span class="brand-ripple"></span></span>
+      <span class="brand-name">Syntap</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="review.html">Syntap Review</a>
+      <a href="#platform">Platform</a>
+      <a href="#business">Business</a>
+      <a href="#cta">Contact</a>
+    </nav>
+
+    <a href="review.html" class="btn btn-ghost header-cta">Explore Review →</a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <a href="review.html">Syntap Review</a>
+    <a href="#platform">Platform</a>
+    <a href="#business">Business</a>
+    <a href="#cta">Contact</a>
+    <a href="review.html" class="btn btn-primary">Explore Review →</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <h1>The physical world, connected.</h1>
+      <p class="hero-sub">Syntap turns physical touchpoints into intelligent digital experiences.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="review.html">Explore Syntap Review →</a>
+        <button class="btn btn-outline-dark" data-scroll="#business">For Business →</button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-tap-stage">
+        <figure class="image-slot image-slot-tall" data-slot="hero-product">
+          <span class="image-slot-label">Product image — hero shot of the Syntap device, front-facing</span>
+        </figure>
+        <div class="tap-demo-ripple r1" aria-hidden="true"></div>
+        <div class="tap-demo-phone" aria-hidden="true"><span class="tap-demo-phone-glow"></span></div>
+      </div>
+      <p class="hero-route" aria-live="polite">
+        <span class="hero-route-dot" aria-hidden="true"></span>
+        <span id="heroRoute">Tap → Google Review</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. THE IDEA ============ -->
+<section class="section" id="idea">
+  <div class="wrap narrow">
+    <h2>One tap can open almost anything.</h2>
+  </div>
+  <div class="wrap">
+    <div class="tap-demo-vertical">
+      <figure class="image-slot image-slot-square" data-slot="idea-product">
+        <span class="image-slot-label">Same device, small crop</span>
+      </figure>
+      <div class="tap-marker" aria-hidden="true">
+        <span class="tap-marker-line"></span>
+        <span class="tap-marker-dot" id="ideaTapDot"></span>
+        <span class="tap-marker-label">Tap</span>
+        <span class="tap-marker-line"></span>
+      </div>
+      <div class="destination-readout" id="ideaReadout">
+        <span class="destination-eyebrow">Opens</span>
+        <span class="destination-value" id="ideaValue">Google Review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. THE ROUTING LAYER ============ -->
+<section class="section section-dark" id="platform">
+  <div class="wrap narrow">
+    <p class="section-kicker section-kicker-dark">How it works</p>
+    <h2 class="dark-heading">The object is simple. The layer behind it isn't.</h2>
+    <p class="section-lede dark-lede">Change what a tap does without replacing the object it's attached to.</p>
+
+    <div class="flow-vertical" aria-hidden="true">
+      <span class="flow-step">Physical object</span>
+      <span class="flow-connector"></span>
+      <span class="flow-step">NFC</span>
+      <span class="flow-connector"></span>
+      <span class="flow-step">Syntap</span>
+      <span class="flow-connector"></span>
+      <span class="flow-step flow-step-accent">Secure routing</span>
+      <span class="flow-connector"></span>
+      <span class="flow-step">Digital experience</span>
+      <span class="flow-connector"></span>
+      <span class="flow-step">Action</span>
+    </div>
+
+    <p class="flow-note">Every device carries its own secure identity, so what it points to can be managed and measured from one place — without exposing anything about the business or customer behind it.</p>
+  </div>
+</section>
+
+<!-- ============ 4. THE OBJECT STAYS ============ -->
+<section class="section" id="concept">
+  <div class="wrap narrow">
+    <p class="section-kicker">Why this is different</p>
+    <h2>The physical object stays.</h2>
+    <p class="section-statement">What it does can change.</p>
+  </div>
+  <div class="wrap">
+    <div class="destination-display">
+      <figure class="image-slot image-slot-square" data-slot="concept-product">
+        <span class="image-slot-label">Same device, small crop</span>
+      </figure>
+      <div class="destination-readout" id="conceptReadout">
+        <span class="destination-eyebrow" id="conceptWhen">Today</span>
+        <span class="destination-value" id="conceptValue">Review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. FLAGSHIP PRODUCT ============ -->
+<section class="section section-alt" id="review-intro">
+  <div class="wrap showcase-inner">
+    <div class="showcase-copy">
+      <p class="section-kicker">The first product</p>
+      <h2>Syntap Review</h2>
+      <p class="section-lede">A physical touchpoint that makes leaving a Google review one tap away.</p>
+      <ul class="showcase-list">
+        <li>NFC chip, tap-ready out of the box</li>
+        <li>QR code backup for every phone</li>
+        <li>Destination set once, changeable later</li>
+        <li>A free-standing piece for the counter or reception</li>
+      </ul>
+      <div class="hero-actions" style="margin-top: 28px;">
+        <a class="btn btn-primary" href="review.html">Explore Syntap Review →</a>
+      </div>
+      <p class="showcase-note">Syntap Review links to a business's existing Google Business Profile. It is not an official Google product.</p>
+    </div>
+    <div class="showcase-visual">
+      <figure class="image-slot image-slot-wide" data-slot="flagship-product">
+        <span class="image-slot-label">Product image — Syntap Review stand on a counter or reception desk</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. SYNTAP BUSINESS ============ -->
+<section class="section section-dark" id="business">
+  <div class="wrap narrow">
+    <p class="section-kicker section-kicker-dark">The software layer</p>
+    <h2 class="dark-heading">Every tap can become a signal.</h2>
+    <p class="section-lede dark-lede">Syntap Business is where devices, destinations and activity will live as the platform grows.</p>
+
+    <div class="business-panel" aria-hidden="true">
+      <div class="business-panel-head"><span class="business-panel-dot"></span><span>Syntap Business — preview</span></div>
+      <div class="business-panel-body">
+        <div class="business-devices">
+          <span class="panel-subhead">Devices</span>
+          <div class="panel-row"><span>Review Stand — Reception</span><span class="panel-status">Active</span></div>
+          <div class="panel-row"><span>Review Stand — Counter</span><span class="panel-status">Active</span></div>
+        </div>
+        <div class="business-activity">
+          <span class="panel-subhead">Example activity</span>
+          <div class="panel-row muted">Tap → Review opened</div>
+          <div class="panel-row muted">Tap → Review opened</div>
+        </div>
+      </div>
+      <div class="business-panel-foot">Illustrative preview — Syntap Business is still rolling out. Figures shown are examples, not live data.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. ECOSYSTEM ============ -->
+<section class="section" id="ecosystem">
+  <div class="wrap narrow">
+    <p class="section-kicker">What's next</p>
+    <h2>One platform. A growing set of experiences.</h2>
+  </div>
+  <div class="wrap">
+    <div class="ecosystem-list">
+      <div class="ecosystem-row ecosystem-row-live"><span class="ecosystem-name">Syntap Review</span><span class="ecosystem-status ecosystem-status-live">Available now</span></div>
+      <div class="ecosystem-row ecosystem-row-future"><span class="ecosystem-name">Syntap Menu</span><span class="ecosystem-status">Coming soon</span></div>
+      <div class="ecosystem-row ecosystem-row-future"><span class="ecosystem-name">Syntap Pay</span><span class="ecosystem-status">In development</span></div>
+      <div class="ecosystem-row ecosystem-row-future"><span class="ecosystem-name">Syntap Card</span><span class="ecosystem-status">Coming soon</span></div>
+      <div class="ecosystem-row ecosystem-row-future"><span class="ecosystem-name">Syntap Connect</span><span class="ecosystem-status">Coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. BUSINESS CTA ============ -->
+<section class="section section-alt final-cta" id="cta">
+  <div class="wrap narrow final-cta-inner">
+    <h2>Build a better interface between your business and your customers.</h2>
+    <p>Start with Syntap Review. The routing layer underneath is built for what comes after.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="review.html">Explore Syntap Review →</a>
+      <a class="btn btn-outline-dark" data-whatsapp href="#">Talk to Syntap →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-name">Syntap</span>
+      <p>The physical world, connected.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <p><a href="review.html">Syntap Review</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <p><a href="#business">Syntap Business</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <p>WhatsApp: <span id="footerWhatsapp">—</span></p>
+      <p>customerserviceshome@gmail.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <p><a href="#">Privacy Policy</a></p>
+      <p><a href="#">Terms of Service</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>Syntap Review links to a business's existing Google Business Profile and is not an official Google product.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
